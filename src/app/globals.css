@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-slate antialiased;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-bold text-navy;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-gold uppercase tracking-widest;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+  }
+
+  .caption {
+    @apply font-mono text-midgrey uppercase tracking-widest;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+  }
+
+  .fade-up-element {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .fade-up-element.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-up-element.delay-100 { transition-delay: 0.1s; }
+  .fade-up-element.delay-200 { transition-delay: 0.2s; }
+  .fade-up-element.delay-300 { transition-delay: 0.3s; }
+  .fade-up-element.delay-400 { transition-delay: 0.4s; }
+  .fade-up-element.delay-500 { transition-delay: 0.5s; }
+
+  .grid-motif-bg {
+    background-color: #1B2A4A;
+    background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='0.5' opacity='0.06'%3E%3Cline x1='0' y1='0' x2='64' y2='0'/%3E%3Cline x1='0' y1='16' x2='64' y2='16'/%3E%3Cline x1='0' y1='32' x2='64' y2='32'/%3E%3Cline x1='0' y1='48' x2='64' y2='48'/%3E%3Cline x1='0' y1='64' x2='64' y2='64'/%3E%3Cline x1='0' y1='0' x2='0' y2='64'/%3E%3Cline x1='16' y1='0' x2='16' y2='64'/%3E%3Cline x1='32' y1='0' x2='32' y2='64'/%3E%3Cline x1='48' y1='0' x2='48' y2='64'/%3E%3Cline x1='64' y1='0' x2='64' y2='64'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 64px 64px;
+  }
+}
+
+@layer utilities {
+  .text-display {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+
+  .focus-gold:focus-visible {
+    @apply outline-none ring-2 ring-gold ring-offset-2 ring-offset-navy;
+  }
+}
