@@ -6,7 +6,11 @@ node_modules/
 out/
 
 # Environment variables — NEVER commit these
+.env
 .env.local
+.env.production
+.env.development
+.env.staging
 .env.*.local
 
 # Sanity

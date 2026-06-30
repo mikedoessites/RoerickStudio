@@ -23,6 +23,7 @@ interface FormData {
   budget: string;
   timeline: string;
   message: string;
+  website: string; // honeypot — must stay empty
 }
 
 const initialForm: FormData = {
@@ -33,6 +34,7 @@ const initialForm: FormData = {
   budget: '',
   timeline: '',
   message: '',
+  website: '',
 };
 
 const inputClass =
@@ -314,6 +316,20 @@ function ContactPageInner() {
                       onChange={handleChange}
                       placeholder="What are you trying to accomplish? What's the business problem you're solving? Any details you can share help me respond more usefully."
                       className={`${inputClass} resize-y`}
+                    />
+                  </div>
+
+                  {/* Honeypot: off-screen, invisible to humans, filled by bots */}
+                  <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} aria-hidden="true">
+                    <label htmlFor="website">Website (leave blank)</label>
+                    <input
+                      id="website"
+                      name="website"
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={form.website}
+                      onChange={handleChange}
                     />
                   </div>
 
